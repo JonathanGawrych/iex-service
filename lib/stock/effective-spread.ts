@@ -11,7 +11,7 @@
  * consolidated tape and comparing those trade prices to the National Best Bid and Offer (“NBBO”)
  * at the time of the execution.
  */
-export namespace Endpoint {
+export namespace EffectiveSpread {
 	export const path = (symbol:string) => `/stock/{symbol}/effective-spread`;
 
 	export interface Response {
