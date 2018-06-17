@@ -1,3 +1,4 @@
+// Simple endpoint without other path parts or query parameters
 // https://iextrading.com/developer/docs/#endpoint
 export namespace Endpoint {
 	export const path = (symbol:string) => `/stock/{symbol}/endpoint`;
@@ -9,5 +10,28 @@ export namespace Endpoint {
 
 	export function get(symbol: string): Promise<Response> {
 		return fetch(path(symbol)).then(res => res.json());
+	}
+}
+
+// Endpoint that includes query parameters
+// https://iextrading.com/developer/docs/#endpoint
+export namespace Endpoint {
+	export const path = (symbol:string) => `/stock/{symbol}/endpoint`;
+
+	export interface Request {}
+
+	export interface Response {
+
+		[futureProp: string]: any
+	}
+
+	export function get(symbol: string, params?: Request): Promise<Response> {
+		let url = path(symbol);
+		if (params != null) {
+			// @ts-ignore - see https://github.com/Microsoft/TypeScript/issues/15338
+			url += '?' + new URLSearchParams(params);
+		}
+
+		return fetch(url).then(res => res.json());
 	}
 }
