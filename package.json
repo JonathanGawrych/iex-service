@@ -1,0 +1,24 @@
+{
+	"name": "iex-service",
+	"version": "0.0.0",
+	"description": "A service that can be used to make calls to the IEX API",
+	"main": "index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JonathanGawrych/iex-service.git"
+	},
+	"keywords": [
+		"iex",
+		"stock",
+		"service"
+	],
+	"author": "Jonathan Gawrych",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/JonathanGawrych/iex-service/issues"
+	},
+	"homepage": "https://github.com/JonathanGawrych/iex-service#readme"
+}
