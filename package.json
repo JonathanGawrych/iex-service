@@ -4,7 +4,7 @@
 	"description": "A service that can be used to make calls to the IEX API",
 	"main": "index.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "node ./node_modules/karma/bin/karma start"
 	},
 	"repository": {
 		"type": "git",
@@ -20,5 +20,11 @@
 	"bugs": {
 		"url": "https://github.com/JonathanGawrych/iex-service/issues"
 	},
-	"homepage": "https://github.com/JonathanGawrych/iex-service#readme"
+	"homepage": "https://github.com/JonathanGawrych/iex-service#readme",
+	"devDependencies": {
+		"jasmine-core": "^3.1.0",
+		"karma": "^2.0.3",
+		"karma-chrome-launcher": "^2.2.0",
+		"karma-jasmine": "^1.1.2"
+	}
 }
