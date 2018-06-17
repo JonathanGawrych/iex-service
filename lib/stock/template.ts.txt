@@ -13,10 +13,10 @@ export namespace Endpoint {
 	}
 }
 
-// Endpoint that includes query parameters
+// Endpoint that includes range path and query parameters
 // https://iextrading.com/developer/docs/#endpoint
 export namespace Endpoint {
-	export const path = (symbol:string) => `/stock/{symbol}/endpoint`;
+	export const path = (symbol: string, range: string) => `/stock/{symbol}/endpoint/{range}`;
 
 	export interface Request {}
 
@@ -25,8 +25,8 @@ export namespace Endpoint {
 		[futureProp: string]: any
 	}
 
-	export function get(symbol: string, params?: Request): Promise<Response> {
-		let url = path(symbol);
+	export function get(symbol: string, range = '', params?: Request): Promise<Response> {
+		let url = path(symbol, range);
 		if (params != null) {
 			// @ts-ignore - see https://github.com/Microsoft/TypeScript/issues/15338
 			url += '?' + new URLSearchParams(params);
