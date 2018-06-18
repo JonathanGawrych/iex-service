@@ -11,6 +11,6 @@ export namespace Price {
 	export type Response = number;
 
 	export function get(symbol: string): Promise<Response> {
-		return fetch(path(symbol)).then(res => res.text()).then(priceStr => Number.parseInt(priceStr, 10));
+		return fetch(path(symbol)).then(res => res.text()).then(priceStr => +priceStr);
 	}
 }
