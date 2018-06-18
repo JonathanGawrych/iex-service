@@ -69,6 +69,23 @@ describe('Stock', () => {
 		close: 143.775
 	};
 
+	let expectedOneDayChart = {
+		...expectedChart,
+		minute: "09:30",
+		marketAverage: 143.889,
+		marketNotional: 441740.275,
+		marketNumberOfTrades: 20,
+		marktOpen: 143.98,
+		marketClose: 143.775,
+		marktHigh: 143.98,
+		marketLow: 143.775,
+		marketVolume: 3070,
+		marketChangeOverTime: -0.004,
+		average: 143.889,
+		notional: 441740.275,
+		numberOfTrades: 20
+	};
+
 	it('should be able to call chart with just a symbol', (done) => {
 		fetchMock.mock(Stock.Chart.path('APPL', '1m'), [expectedChart]);
 		Stock.Chart.get('APPL').then((chart) => {
@@ -106,6 +123,19 @@ describe('Stock', () => {
 		fetchMock.mock(Stock.Chart.path('APPL', '3m') + paramString, [expectedChart]);
 		Stock.Chart.get('APPL', '3m', params).then((chart) => {
 			expect(chart).toEqual([expectedChart]);
+			done();
+		})
+	});
+
+	it('should be able to call a one day chart with one day params', (done) => {
+		let params: Stock.Chart.OneDay.Request = {
+			chartReset: true
+		};
+		let paramString = '?chartReset=true';
+
+		fetchMock.mock(Stock.Chart.path('APPL', '3m') + paramString, [expectedOneDayChart]);
+		Stock.Chart.get('APPL', '3m', params).then((chart) => {
+			expect(chart).toEqual([expectedOneDayChart]);
 			done();
 		})
 	});
