@@ -1,3 +1,5 @@
+import { PREFIX } from 'config';
+
 // https://iextrading.com/developer/docs/#relevant
 /**
  * Similar to the peers endpoint, except this will return most active market symbols when
@@ -5,7 +7,7 @@
  * This is not intended to represent a definitive or accurate list of peers, and is subject to change at any time.
  */
 export namespace Relevant {
-	export const path = (symbol: string) => `/stock/{symbol}/relevant`;
+	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/relevant`;
 
 	export interface Response {
 		peers: boolean,

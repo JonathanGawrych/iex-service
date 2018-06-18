@@ -1,6 +1,6 @@
 {
 	"name": "iex-service",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "A service that can be used to make calls to the IEX API",
 	"types": "dist/index.d.ts",
 	"main": "dist/index.js",
