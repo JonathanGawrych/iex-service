@@ -91,6 +91,14 @@ describe('Stock', () => {
 		simplifyFactor: [2, 1]
 	};
 
+	let expectedMultiDayChart: Stock.Chart.MultiDay.Response = {
+		...expectedChart,
+		unadjustedVolume: 20810632,
+		change: 0.06,
+		changePercent: 0.038,
+		vwap: 158.9944
+	};
+
 	it('should be able to call chart with just a symbol', (done) => {
 		fetchMock.mock(Stock.Chart.path('APPL', '1m'), [expectedChart]);
 		Stock.Chart.get('APPL').then((chart) => {
@@ -154,6 +162,14 @@ describe('Stock', () => {
 		fetchMock.mock(Stock.Chart.path('APPL', '1d') + paramString, [expectedSimplifiedOneDayChart]);
 		Stock.Chart.get('APPL', '1d', params).then((chart) => {
 			expect(chart).toEqual([expectedSimplifiedOneDayChart]);
+			done();
+		})
+	});
+
+	it('should be able to call a multi day chart', (done) => {
+		fetchMock.mock(Stock.Chart.path('APPL', '1m'), [expectedMultiDayChart]);
+		Stock.Chart.get('APPL', '1m').then((chart) => {
+			expect(chart).toEqual([expectedMultiDayChart]);
 			done();
 		})
 	});
