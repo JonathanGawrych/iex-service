@@ -1,6 +1,11 @@
+import * as fetchMock from 'fetch-mock';
 import { Stock } from '../lib';
 
 describe('Stock', () => {
+	afterEach(() => {
+		fetchMock.restore();
+	});
+
 	it('should have all the apis', () => {
 		// expect(Stock.batch).toBeDefined();
 		// expect(Stock.book).toBeDefined();
@@ -27,6 +32,14 @@ describe('Stock', () => {
 		// expect(Stock.thresholdSecurities).toBeDefined();
 		expect(Stock.TimeSeries).toBeDefined();
 		expect(Stock.VolumeByVenue).toBeDefined();
+	});
+
+	it('should be able to get the price', (done) => {
+		fetchMock.mock(Stock.Price.path('MSFT'), '100');
+		Stock.Price.get('MSFT').then((price) => {
+			expect(price).toBe(100);
+			done();
+		});
 	});
 });
 
