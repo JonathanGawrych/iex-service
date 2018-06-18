@@ -1,4 +1,4 @@
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#financials
 // Pulls income statement, balance sheet, and cash flow data from the four most recent reported quarters.

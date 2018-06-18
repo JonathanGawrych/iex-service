@@ -1,4 +1,4 @@
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 import { RangeOption } from './range'
 
 // https://iextrading.com/developer/docs/#dividends

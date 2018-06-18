@@ -1,4 +1,4 @@
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#largest-trades
 // This returns 15 minute delayed, last sale eligible trades.

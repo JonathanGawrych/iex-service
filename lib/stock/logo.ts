@@ -1,4 +1,4 @@
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#logo
 // This is a helper function, but the google APIs url is standardized.

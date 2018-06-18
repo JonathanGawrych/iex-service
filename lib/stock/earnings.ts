@@ -1,4 +1,4 @@
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#earnings
 // Pulls data from the four most recent reported quarters.

@@ -1,5 +1,5 @@
 // Simple endpoint without other path parts or query parameters
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 // https://iextrading.com/developer/docs/#endpoint
 export namespace Endpoint {
 	export const path = (symbol:string) => PREFIX + `/stock/{symbol}/endpoint`;
@@ -15,7 +15,7 @@ export namespace Endpoint {
 }
 
 // Endpoint that includes range path and query parameters
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 import { RangeOption } from './range'
 
 // https://iextrading.com/developer/docs/#endpoint

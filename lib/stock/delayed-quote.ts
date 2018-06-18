@@ -1,4 +1,4 @@
-import { PREFIX } from 'config';
+import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#delayed-quote
 // The 15 minute delayed market quote.
