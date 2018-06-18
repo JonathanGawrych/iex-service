@@ -1,7 +1,7 @@
+import { RangeOption } from './range'
+
 // https://iextrading.com/developer/docs/#chart
 export namespace Chart {
-	export const path = (symbol: string, range: string) => `/stock/{symbol}/chart/{range}`;
-
 	/**
 	 * 5y -      Five years -    Historically adjusted market-wide data
 	 * 2y -      Two years -     Historically adjusted market-wide data
@@ -14,7 +14,9 @@ export namespace Chart {
 	 * date -    Specific date - IEX-only data by minute for a specified date in the format YYYYMMDD if available. Currently supporting trailing 30 calendar days.
 	 * dynamic - One day -       Will return 1d or 1m data depending on the day or week and time of day. Intraday per minute data is only returned during market hours.
 	 */
-	export type RangeOption = '5y' | '2y' | '1y' | 'ytd' | '6m' | '3m' | '1m' | '1d' | 'date' | 'dynamic';
+	export type ChartRanges = RangeOption | '1d' | 'date' | 'dynamic';
+
+	export const path = (symbol: string, ChartRanges: string) => `/stock/{symbol}/chart/{range}`;
 
 	export interface Request {
 		chartInterval: number,    // If passed, chart data will return every Nth element as defined by chartInterval
@@ -89,19 +91,17 @@ export namespace Chart {
 	                 | Promise<MultiDay.Response[]>;
 
 	// Possible overload list
-	export function get(symbol: string, range: RangeOption, params?: Request): Promise<Response[]>;
+	export function get(symbol: string, range: ChartRanges, params?: Request): Promise<Response[]>;
 	export function get(symbol: string, range: '1d', params?: OneDay.Request): Promise<OneDay.Response[]>;
 	export function get(symbol: string, range: '1d', params?: OneDay.Simplify.Request): Promise<OneDay.Simplify.Response[]>;
-	export function get(symbol: string, range: Exclude<RangeOption, '1d'>, params?: Request): Promise<MultiDay.Response[]>;
+	export function get(symbol: string, range: Exclude<ChartRanges, '1d'>, params?: Request): Promise<MultiDay.Response[]>;
 	export function get(symbol: string, range: 'date', params: Request, date: string): Promise<MultiDay.Response[]>;
 
 	// Overloaded real function
-	export function get(symbol: string, range: RangeOption = '1m', params?: AnyRequest, date?: string): AnyResponse {
-		let url: string;
+	export function get(symbol: string, range: ChartRanges = '1m', params?: AnyRequest, date?: string): AnyResponse {
+		let url = path(symbol, range);
 		if (range == 'date') {
-			url = path(symbol, range + '/' + date!);
-		} else{
-			url = path(symbol, range);
+			url += '/' + date!;
 		}
 
 		if (params != null) {

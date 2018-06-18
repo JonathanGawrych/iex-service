@@ -2,9 +2,9 @@ import { Quote } from './quote'
 
 // https://iextrading.com/developer/docs/#list
 export namespace List {
-	export const path = (type: Type) => `/stock/market/list/{type}`;
-
 	export type Type = 'mostactive' | 'gainers' | 'losers' | 'iexvolume' | 'iexpercent';
+
+	export const path = (type: Type) => `/stock/market/list/{type}`;
 
 	export interface Request {
 		displayPercent?: boolean; // If set to true, all percentage values will be multiplied by a factor of 100

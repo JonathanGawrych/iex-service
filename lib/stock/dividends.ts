@@ -1,17 +1,8 @@
+import { RangeOption } from './range'
+
 // https://iextrading.com/developer/docs/#dividends
 export namespace Dividends {
 	export const path = (symbol: string, range: RangeOption) => `/stock/{symbol}/dividends/{range}`;
-
-	/**
-	 * 5y -      Five years -    Historically market-wide data
-	 * 2y -      Two years -     Historically market-wide data
-	 * 1y -      One year -      Historically market-wide data
-	 * ytd -     Year-to-date -  Historically market-wide data
-	 * 6m -      Six months -    Historically market-wide data
-	 * 3m -      Three months -  Historically market-wide data
-	 * 1m -      One month -     Historically market-wide data (default)
-	 */
-	export type RangeOption = '5y' | '2y' | '1y' | 'ytd' | '6m' | '3m' | '1m';
 
 	// The dividend flag
 	// FI = Final dividend, div ends or instrument ends,

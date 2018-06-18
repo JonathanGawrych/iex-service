@@ -14,9 +14,11 @@ export namespace Endpoint {
 }
 
 // Endpoint that includes range path and query parameters
+import { RangeOption } from './range'
+
 // https://iextrading.com/developer/docs/#endpoint
 export namespace Endpoint {
-	export const path = (symbol: string, range: string) => `/stock/{symbol}/endpoint/{range}`;
+	export const path = (symbol: string, range: RangeOption) => `/stock/{symbol}/endpoint/{range}`;
 
 	export interface Request {}
 
@@ -25,7 +27,7 @@ export namespace Endpoint {
 		[futureProp: string]: any
 	}
 
-	export function get(symbol: string, range = '', params?: Request): Promise<Response> {
+	export function get(symbol: string, range: RangeOption = '', params?: Request): Promise<Response> {
 		let url = path(symbol, range);
 		if (params != null) {
 			// @ts-ignore - see https://github.com/Microsoft/TypeScript/issues/15338
