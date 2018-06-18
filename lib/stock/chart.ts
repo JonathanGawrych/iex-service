@@ -17,7 +17,7 @@ export namespace Chart {
 	 */
 	export type ChartRanges = RangeOption | '1d' | 'date' | 'dynamic';
 
-	export const path = (symbol: string, ChartRanges: string) => PREFIX + `/stock/{symbol}/chart/{range}`;
+	export const path = (symbol: string, range: ChartRanges) => PREFIX + `/stock/${symbol}/chart/${range}`;
 
 	export interface Request {
 		chartInterval: number,    // If passed, chart data will return every Nth element as defined by chartInterval

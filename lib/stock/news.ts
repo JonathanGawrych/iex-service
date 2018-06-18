@@ -8,7 +8,7 @@ export namespace News {
 	                 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40
 	                 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 50;
 
-	export const path = (symbol: string, last: Last) => PREFIX + `/stock/{symbol}/news/last/{last}`;
+	export const path = (symbol: string, last: Last) => PREFIX + `/stock/${symbol}/news/last/${last}`;
 
 	export interface Response {
 		datetime: string,

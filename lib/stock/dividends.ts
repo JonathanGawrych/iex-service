@@ -3,7 +3,7 @@ import { RangeOption } from './range'
 
 // https://iextrading.com/developer/docs/#dividends
 export namespace Dividends {
-	export const path = (symbol: string, range: RangeOption) => PREFIX + `/stock/{symbol}/dividends/{range}`;
+	export const path = (symbol: string, range: RangeOption) => PREFIX + `/stock/${symbol}/dividends/${range}`;
 
 	// The dividend flag
 	// FI = Final dividend, div ends or instrument ends,

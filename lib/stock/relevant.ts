@@ -7,7 +7,7 @@ import { PREFIX } from '../config';
  * This is not intended to represent a definitive or accurate list of peers, and is subject to change at any time.
  */
 export namespace Relevant {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/relevant`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/relevant`;
 
 	export interface Response {
 		peers: boolean,

@@ -2,7 +2,7 @@ import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#company
 export namespace Company {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/company`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/company`;
 
 	// The common issue type of the stock.
 	// ad – American Depository Receipt (ADR’s)

@@ -6,7 +6,7 @@ import { PREFIX } from '../config';
  * or the previous close price, is returned.
  */
 export namespace Price {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/price`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/price`;
 
 	export type Response = number;
 

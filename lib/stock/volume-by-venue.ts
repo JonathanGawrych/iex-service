@@ -7,7 +7,7 @@ import { PREFIX } from '../config';
  * in ascending order by current day trading volume percentage.
  */
 export namespace VolumeByVenue {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/volume-by-venue`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/volume-by-venue`;
 
 	export interface Response {
 		volume: number,           // The current day, 15 minute delayed volume

@@ -2,7 +2,7 @@ import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#ohlc
 export namespace OHLC {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/ohlc`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/ohlc`;
 
 	export interface OpenClose {
 		price: number,            // The official open or close price

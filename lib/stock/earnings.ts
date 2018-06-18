@@ -3,7 +3,7 @@ import { PREFIX } from '../config';
 // https://iextrading.com/developer/docs/#earnings
 // Pulls data from the four most recent reported quarters.
 export namespace Earnings {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/earnings`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/earnings`;
 
 	// Time of earnings announcement.
 	// BTO - Before open

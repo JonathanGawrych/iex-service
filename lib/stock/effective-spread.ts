@@ -14,7 +14,7 @@ import { PREFIX } from '../config';
  * at the time of the execution.
  */
 export namespace EffectiveSpread {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/effective-spread`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/effective-spread`;
 
 	export interface Response {
 		volume: number,            // The eligible shares used for calculating effectiveSpread and priceImprovement

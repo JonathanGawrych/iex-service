@@ -2,7 +2,7 @@ import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#quote
 export namespace Quote {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/quote`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/quote`;
 
 	export interface Request {
 		displayPercent?: boolean; // If set to true, all percentage values will be multiplied by a factor of 100

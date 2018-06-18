@@ -2,7 +2,7 @@ import { PREFIX } from '../config';
 
 // https://iextrading.com/developer/docs/#stats
 export namespace Stats {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/stats`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/stats`;
 
 	export interface Response {
 		companyName: string,         //

@@ -6,7 +6,7 @@ import { PREFIX } from '../config';
  * or an object keyed by symbol of price data for the whole market.
  */
 export namespace Previous {
-	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/previous`;
+	export const path = (symbol: string) => PREFIX + `/stock/${symbol}/previous`;
 
 	export interface Response {
 		symbol: string,           // The stock ticker.
