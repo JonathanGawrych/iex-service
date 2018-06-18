@@ -173,5 +173,13 @@ describe('Stock', () => {
 			done();
 		})
 	});
+
+	it('should be able to call a custom date chart', (done) => {
+		fetchMock.mock(Stock.Chart.path('APPL', 'date') + '/20180618?', [expectedOneDayChart]);
+		Stock.Chart.get('APPL', 'date', {}, '20180618').then((chart) => {
+			expect(chart).toEqual([expectedOneDayChart]);
+			done();
+		})
+	});
 });
 
