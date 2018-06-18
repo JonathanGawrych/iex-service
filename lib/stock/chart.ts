@@ -20,9 +20,9 @@ export namespace Chart {
 	export const path = (symbol: string, range: ChartRanges) => PREFIX + `/stock/${symbol}/chart/${range}`;
 
 	export interface Request {
-		chartInterval: number,    // If passed, chart data will return every Nth element as defined by chartInterval
-		changeFromClose: boolean, // If true, changeOverTime and marketChangeOverTime will be relative to previous day close instead of the first value.
-		chartLast: number         // If passed, chart data will return the last N elements
+		chartInterval?: number,    // If passed, chart data will return every Nth element as defined by chartInterval
+		changeFromClose?: boolean, // If true, changeOverTime and marketChangeOverTime will be relative to previous day close instead of the first value.
+		chartLast?: number         // If passed, chart data will return the last N elements
 	}
 
 	export interface Response {
@@ -39,7 +39,7 @@ export namespace Chart {
 
 	export namespace OneDay {
 		export interface Request extends Chart.Request {
-			chartReset: boolean, // If true, 1d chart will reset at midnight instead of the default behavior of 9:30am ET.
+			chartReset?: boolean, // If true, 1d chart will reset at midnight instead of the default behavior of 9:30am ET.
 		}
 
 		export interface Response extends Chart.Response {
@@ -60,7 +60,7 @@ export namespace Chart {
 
 		export namespace Simplify {
 			export interface Request extends Chart.OneDay.Request {
-				chartSimplify: boolean, // If true, runs a polyline simplification using the Douglas-Peucker algorithm. This is useful if plotting sparkline charts
+				chartSimplify?: boolean, // If true, runs a polyline simplification using the Douglas-Peucker algorithm. This is useful if plotting sparkline charts
 			}
 
 			export interface SimplifyFactor {
