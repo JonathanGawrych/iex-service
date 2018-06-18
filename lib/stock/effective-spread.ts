@@ -1,3 +1,5 @@
+import { PREFIX } from 'config';
+
 // https://iextrading.com/developer/docs/#effective-spread
 /**
  * This returns an array of effective spread, eligible volume, and price improvement of a stock,
@@ -12,7 +14,7 @@
  * at the time of the execution.
  */
 export namespace EffectiveSpread {
-	export const path = (symbol: string) => `/stock/{symbol}/effective-spread`;
+	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/effective-spread`;
 
 	export interface Response {
 		volume: number,            // The eligible shares used for calculating effectiveSpread and priceImprovement

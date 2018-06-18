@@ -1,10 +1,12 @@
+import { PREFIX } from 'config';
+
 // https://iextrading.com/developer/docs/#previous
 /**
  * This returns previous day adjusted price data for a single stock,
  * or an object keyed by symbol of price data for the whole market.
  */
 export namespace Previous {
-	export const path = (symbol: string) => `/stock/{symbol}/previous`;
+	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/previous`;
 
 	export interface Response {
 		symbol: string,           // The stock ticker.

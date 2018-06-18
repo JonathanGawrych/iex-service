@@ -1,3 +1,5 @@
+import { PREFIX } from 'config';
+
 // https://iextrading.com/developer/docs/#volume-by-venue
 /**
  * This returns 15 minute delayed and 30 day average consolidated volume percentage
@@ -5,7 +7,7 @@
  * in ascending order by current day trading volume percentage.
  */
 export namespace VolumeByVenue {
-	export const path = (symbol: string) => `/stock/{symbol}/volume-by-venue`;
+	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/volume-by-venue`;
 
 	export interface Response {
 		volume: number,           // The current day, 15 minute delayed volume

@@ -1,7 +1,9 @@
+import { PREFIX } from 'config';
+
 // https://iextrading.com/developer/docs/#delayed-quote
 // The 15 minute delayed market quote.
 export namespace DelayedQuote {
-	export const path = (symbol: string) => `/stock/{symbol}/delayed-quote`;
+	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/delayed-quote`;
 
 	export interface Response {
 		symbol: string,           // The stock ticker

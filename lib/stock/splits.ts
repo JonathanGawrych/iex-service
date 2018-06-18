@@ -1,8 +1,9 @@
+import { PREFIX } from 'config';
 import { RangeOption } from './range'
 
 // https://iextrading.com/developer/docs/#splits
 export namespace Splits {
-	export const path = (symbol: string, range: RangeOption) => `/stock/{symbol}/splits/{range}`;
+	export const path = (symbol: string, range: RangeOption) => PREFIX + `/stock/{symbol}/splits/{range}`;
 
 	export interface Response {
 		exDate: string,           // The dividend ex-date

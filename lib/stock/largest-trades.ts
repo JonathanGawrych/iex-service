@@ -1,7 +1,9 @@
+import { PREFIX } from 'config';
+
 // https://iextrading.com/developer/docs/#largest-trades
 // This returns 15 minute delayed, last sale eligible trades.
 export namespace LargestTrades {
-	export const path = (symbol: string) => `/stock/{symbol}/largest-trades`;
+	export const path = (symbol: string) => PREFIX + `/stock/{symbol}/largest-trades`;
 
 	export interface Response {
 		price: number,            // The price of the trade
