@@ -69,15 +69,15 @@ describe('Stock', () => {
 		close: 143.775
 	};
 
-	let expectedOneDayChart = {
+	let expectedOneDayChart: Stock.Chart.OneDay.Response = {
 		...expectedChart,
 		minute: "09:30",
 		marketAverage: 143.889,
 		marketNotional: 441740.275,
 		marketNumberOfTrades: 20,
-		marktOpen: 143.98,
+		marketOpen: 143.98,
 		marketClose: 143.775,
-		marktHigh: 143.98,
+		marketHigh: 143.98,
 		marketLow: 143.775,
 		marketVolume: 3070,
 		marketChangeOverTime: -0.004,
@@ -86,7 +86,7 @@ describe('Stock', () => {
 		numberOfTrades: 20
 	};
 
-	let expectedSimplifiedOneDayChart = {
+	let expectedSimplifiedOneDayChart: Stock.Chart.OneDay.Simplify.Response = {
 		...expectedOneDayChart,
 		simplifyFactor: [2, 1]
 	};
@@ -138,8 +138,8 @@ describe('Stock', () => {
 		};
 		let paramString = '?chartReset=true';
 
-		fetchMock.mock(Stock.Chart.path('APPL', '3m') + paramString, [expectedOneDayChart]);
-		Stock.Chart.get('APPL', '3m', params).then((chart) => {
+		fetchMock.mock(Stock.Chart.path('APPL', '1d') + paramString, [expectedOneDayChart]);
+		Stock.Chart.get('APPL', '1d', params).then((chart) => {
 			expect(chart).toEqual([expectedOneDayChart]);
 			done();
 		})
@@ -151,8 +151,8 @@ describe('Stock', () => {
 		};
 		let paramString = '?chartSimplify=true';
 
-		fetchMock.mock(Stock.Chart.path('APPL', '3m') + paramString, [expectedSimplifiedOneDayChart]);
-		Stock.Chart.get('APPL', '3m', params).then((chart) => {
+		fetchMock.mock(Stock.Chart.path('APPL', '1d') + paramString, [expectedSimplifiedOneDayChart]);
+		Stock.Chart.get('APPL', '1d', params).then((chart) => {
 			expect(chart).toEqual([expectedSimplifiedOneDayChart]);
 			done();
 		})
