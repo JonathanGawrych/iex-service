@@ -92,7 +92,7 @@ export namespace Chart {
 	                 | Promise<MultiDay.Response[]>;
 
 	// Possible overload list
-	export function get(symbol: string, range: ChartRanges, params?: Request): Promise<Response[]>;
+	export function get(symbol: string, range?: ChartRanges, params?: Request): Promise<Response[]>;
 	export function get(symbol: string, range: '1d', params?: OneDay.Request): Promise<OneDay.Response[]>;
 	export function get(symbol: string, range: '1d', params?: OneDay.Simplify.Request): Promise<OneDay.Simplify.Response[]>;
 	export function get(symbol: string, range: Exclude<ChartRanges, '1d'>, params?: Request): Promise<MultiDay.Response[]>;
