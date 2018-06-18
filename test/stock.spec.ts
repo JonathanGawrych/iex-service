@@ -57,5 +57,24 @@ describe('Stock', () => {
 			done();
 		})
 	});
+
+	it('should be able to call chart with basic options', (done) => {
+		let expectedChart: Stock.Chart.Response = {
+			high: 143.98,
+			low: 143.775,
+			volume: 3070,
+			label: "09:30 AM",
+			changeOverTime: -0.0039,
+			date: "20171215",
+			open: 143.98,
+			close: 143.775
+		};
+
+		fetchMock.mock(Stock.Chart.path('APPL', '1m'), [expectedChart]);
+		Stock.Chart.get('APPL').then((chart) => {
+			expect(chart).toEqual([expectedChart]);
+			done();
+		})
+	});
 });
 
