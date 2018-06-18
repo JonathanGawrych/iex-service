@@ -1,7 +1,7 @@
 // https://iextrading.com/developer/docs/#financials
 // Pulls income statement, balance sheet, and cash flow data from the four most recent reported quarters.
 export namespace Financials {
-	export const path = (symbol:string) => `/stock/{symbol}/financials`;
+	export const path = (symbol: string) => `/stock/{symbol}/financials`;
 
 	export interface Quarter {
 		reportDate: string,

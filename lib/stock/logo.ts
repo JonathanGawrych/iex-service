@@ -1,7 +1,7 @@
 // https://iextrading.com/developer/docs/#logo
 // This is a helper function, but the google APIs url is standardized.
 export namespace Logo {
-	export const path = (symbol:string) => `/stock/{symbol}/logo`;
+	export const path = (symbol: string) => `/stock/{symbol}/logo`;
 
 	export interface Response {
 		url: string,

@@ -12,7 +12,7 @@
  * at the time of the execution.
  */
 export namespace EffectiveSpread {
-	export const path = (symbol:string) => `/stock/{symbol}/effective-spread`;
+	export const path = (symbol: string) => `/stock/{symbol}/effective-spread`;
 
 	export interface Response {
 		volume: number,            // The eligible shares used for calculating effectiveSpread and priceImprovement

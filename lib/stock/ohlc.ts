@@ -1,6 +1,6 @@
 // https://iextrading.com/developer/docs/#ohlc
 export namespace OHLC {
-	export const path = (symbol:string) => `/stock/{symbol}/ohlc`;
+	export const path = (symbol: string) => `/stock/{symbol}/ohlc`;
 
 	export interface OpenClose {
 		price: number,            // The official open or close price

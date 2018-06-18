@@ -1,6 +1,6 @@
 // https://iextrading.com/developer/docs/#peers
 export namespace Peers {
-	export const path = (symbol:string) => `/stock/{symbol}/peers`;
+	export const path = (symbol: string) => `/stock/{symbol}/peers`;
 
 	/**
 	 * An array of peer tickers as defined by IEX. This is not intended to represent
