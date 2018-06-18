@@ -86,6 +86,11 @@ describe('Stock', () => {
 		numberOfTrades: 20
 	};
 
+	let expectedSimplifiedOneDayChart = {
+		...expectedOneDayChart,
+		simplifyFactor: [2, 1]
+	};
+
 	it('should be able to call chart with just a symbol', (done) => {
 		fetchMock.mock(Stock.Chart.path('APPL', '1m'), [expectedChart]);
 		Stock.Chart.get('APPL').then((chart) => {
@@ -136,6 +141,19 @@ describe('Stock', () => {
 		fetchMock.mock(Stock.Chart.path('APPL', '3m') + paramString, [expectedOneDayChart]);
 		Stock.Chart.get('APPL', '3m', params).then((chart) => {
 			expect(chart).toEqual([expectedOneDayChart]);
+			done();
+		})
+	});
+
+	it('should be able to call a simplified one day chart with simplified one day params', (done) => {
+		let params: Stock.Chart.OneDay.Simplify.Request = {
+			chartSimplify: true
+		};
+		let paramString = '?chartSimplify=true';
+
+		fetchMock.mock(Stock.Chart.path('APPL', '3m') + paramString, [expectedSimplifiedOneDayChart]);
+		Stock.Chart.get('APPL', '3m', params).then((chart) => {
+			expect(chart).toEqual([expectedSimplifiedOneDayChart]);
 			done();
 		})
 	});
