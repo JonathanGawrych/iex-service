@@ -1,1 +1,3 @@
-export default class IEXService {}
+import * as Stock from './stock'
+
+export { Stock };
