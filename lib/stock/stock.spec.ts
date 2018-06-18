@@ -1,5 +1,5 @@
 import * as fetchMock from 'fetch-mock';
-import { Stock } from '../lib';
+import * as Stock from './index';
 
 describe('Stock', () => {
 	afterEach(() => {
