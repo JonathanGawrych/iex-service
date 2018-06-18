@@ -94,5 +94,20 @@ describe('Stock', () => {
 			done();
 		})
 	});
+
+	it('should be able to call chart with a symbol, range, and params', (done) => {
+		let params: Stock.Chart.Request = {
+			chartInterval: 1,
+			changeFromClose: true,
+			chartLast: 2
+		};
+		let paramString = '?chartInterval=1&changeFromClose=true&chartLast=2';
+
+		fetchMock.mock(Stock.Chart.path('APPL', '3m') + paramString, [expectedChart]);
+		Stock.Chart.get('APPL', '3m', params).then((chart) => {
+			expect(chart).toEqual([expectedChart]);
+			done();
+		})
+	});
 });
 
