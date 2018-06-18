@@ -29,7 +29,7 @@ export namespace Chart {
 		high: number,             //
 		low: number,              //
 		volume: number,           //
-		label: number,            // A variable formatted version of the date depending on the range. Optional convienience field.
+		label: string,            // A variable formatted version of the date depending on the range. Optional convienience field.
 		changeOverTime: number,   // Percent change of each interval relative to first value. Useful for comparing multiple stocks.
 		date: string,             //
 		open: number,             //
