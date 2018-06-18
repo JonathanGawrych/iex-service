@@ -41,5 +41,13 @@ describe('Stock', () => {
 			done();
 		});
 	});
+
+	it('should be able to get a list without query parameters', (done) => {
+		fetchMock.mock(Stock.List.path('mostactive'), []);
+		Stock.List.get('mostactive').then((quotes) => {
+			expect(quotes).toEqual([]);
+			done();
+		})
+	});
 });
 
